@@ -9,10 +9,14 @@ import { HiOutlineChartPie } from "react-icons/hi";
 import { TbSettings } from "react-icons/tb";
 import { Avatar } from "antd";
 
-export default function SidebarNav() {
-  const [activeBtn, setActiveBtn] = useState("DASHBOARD");
+interface IProps {
+  activeBtn: string;
+  setActiveBtn: (val: string) => void;
+}
+
+export default function SidebarNav({ activeBtn, setActiveBtn }: IProps) {
   return (
-    <aside className="w-[280px] min-h-screen flex flex-col overflow-x-hidden rounded-r-[40px]">
+    <aside className=" fixed top-0 left-0 bottom-0 w-[280px] min-h-screen flex flex-col overflow-x-hidden rounded-r-[40px]">
       <div className="bg-primary text-center py-10">
         <div
           className="w-fit h-fit rounded-full p-1 mx-auto"
@@ -32,8 +36,8 @@ export default function SidebarNav() {
         <h4 className="text-xl text-white font-semibold">ALEX JOHNSON</h4>
         <p className="text-white text-xs">alex.johnson@gmail.com</p>
       </div>
-      <div className="flex-1 bg-secondary py-5">
-        <div className="grid pl-3">
+      <div className="flex-1 flex flex-col bg-secondary py-5">
+        <div className="grid pl-3 mb-auto">
           {[
             {
               title: "DASHBOARD",
